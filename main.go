@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"log"
+)
 
 func main(){
-	fmt.Println("Hello World")
+	portString := os.Environ()
+	if portString == ""{
+		log.Fatal("PORT is not found in the environment")
+	}
+	fmt.Println("Hello World your port ",portString," is exposed")
 }
